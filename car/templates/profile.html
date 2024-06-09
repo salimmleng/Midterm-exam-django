@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">{{ user.username }}'s Profile</h1>
+    <h2 class="text-center">Total bought Cars</h2>
+    
+    <div class="row d-flex flex-wrap pt-3">
+        {% for car in cars %}
+        <div class="col-3 mx-2">
+            <div class="card border " style="width: 18rem;">
+                <img src="{{car.img.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.car_name}}</h5>
+                    <p class="card-text">${{car.car_price}}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class='d-flex flex-wrap align-items-center p-3 px-5'>
+    <div class="col-6 ">
+        <h1>Welcome to car sales website</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolore. Voluptate commodi in nobis eveniet
+            totam est sit numquam, praesentium quos enim vel adipisci at cum, accusantium ipsam neque minus minima?
+            Quisquam, aliquam dolorem sapiente delectus iusto deserunt beatae perferendis praesentium fugiat temporibus
+            sit. Temporibus, eveniet. Aliquid fugiat reiciendis quidem.</p>
+
+    </div>
+    <div class="col-6">
+        <img style="width : 650px" src="{% static 'car.jpg' %}" alt="">
+
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <h5 class=" m-2">Popular Brands</h5>
+    {% for br in brand %}
+    <a class="btn btn-outline-primary m-2 text-decoration-none text-dark "  href="{% url 'brand_wise_car' br.slug %}">{{br}}</a>
+    {% endfor %}
+</div>
+
+
+
+<div class="container">
+    <h3>{{data | length}} car found</h3>
+    <div class="row d-flex flex-wrap pt-3">
+        {% for car in data %}
+        <div class="col-3 mx-2">
+            <div class="card border " style="width: 18rem;">
+                <img src="{{car.img.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.car_name}}</h5>
+                    <p class="card-text">${{car.car_price}}</p>
+                    <div  class="d-grid gap-2 col-6 mx-auto">
+                        <a href="{% url 'car_detail' car.id %}" class="btn btn-warning" type="button">View Details</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

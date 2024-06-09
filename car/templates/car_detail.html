@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card mb-3 mx-auto my-5" style="max-width: 740px;">
+  <div class="row g-0 border">
+    <div class="col-md-6">
+      <img src="{{ car.img.url }}" class="img-fluid rounded-start" alt="...">
+      <p class="d-inline-flex gap-1">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Show details
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title">{{ car.brand_name.name }}</h5>
+        <p>Description: {{ car.description }}</p>
+        <p>Price: ${{ car.car_price }}</p>
+        <p>Quantity: {{ car.quantity }}</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'add_to_profile' car.id %}" class="btn btn-primary" type="button">Shop now</a>
+       {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
