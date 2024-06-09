@@ -127,6 +127,11 @@ STATICFILES_DIRS = [
 
 
 ]
+
+LOGIN_URL = 'login'
+LOGIN_URL = '/car/login/'
+LOGOUT_REDIRECT_URL = 'login' 
+
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 

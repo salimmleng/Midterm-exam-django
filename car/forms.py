@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.contrib.auth.models import User
 from .models import CarModel,Brand,Comment,Profile
 from django import forms 
@@ -33,14 +33,9 @@ class CommentForm(forms.ModelForm):
 
 
 
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
-
+class ChangeuserData(UserChangeForm):
+    password = None
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'first_name','last_name','email']
 
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['cars']
