@@ -122,7 +122,7 @@ class CarDetailView(DetailView):
             new_comment = comment_form.save(commit=False)
             new_comment.car = car_object
             new_comment.save()
-            return redirect('car_detail', car_id=self.object.id)
+            return redirect('car_detail', car_id=car_object.id)
         return self.get(request, *args, **kwargs)  # If the form is invalid, re-render the detail page
 
     def get_context_data(self, **kwargs):
