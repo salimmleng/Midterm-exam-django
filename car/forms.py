@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from django.contrib.auth.models import User
 from .models import CarModel,Brand,Comment,Profile
 from django import forms 
+
 class RegistrationForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'id': 'required'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'id': 'required'}))
@@ -23,7 +24,6 @@ class BrandForm(forms.ModelForm):
         fields = '__all__'
 
 
-# chat gpt
 
 
 class CommentForm(forms.ModelForm):

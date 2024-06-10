@@ -73,7 +73,6 @@ class UserLogoutView(LogoutView):
 def add_to_profile(request, car_id):
     car = CarModel.objects.get( id=car_id)
     profile = request.user.profile
-    # Decrease quantity by 1
     if car.quantity > 0:
         profile.cars.add(car)
         car.quantity -= 1
@@ -117,11 +116,11 @@ class CarDetailView(DetailView):
     context_object_name = 'car'
 
     def post(self, request, *args, **kwargs):
-        self.object = self.get_object()  # Get the CarModel instance
+        car_object = self.get_object()  # Get the CarModel instance
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
-            new_comment.car = self.object
+            new_comment.car = car_object
             new_comment.save()
             return redirect('car_detail', car_id=self.object.id)
         return self.get(request, *args, **kwargs)  # If the form is invalid, re-render the detail page

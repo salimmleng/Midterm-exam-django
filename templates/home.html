@@ -5,7 +5,12 @@
 <div class='d-flex flex-wrap align-items-center p-3 px-5'>
     <div class="col-6 ">
         <h1>Welcome to Car Mart,Where Luxury Meets Performance</h1>
-        <p>Discover the pinnacle of automotive excellence with our exclusive selection of luxury vehicles. At [Your Company Name], we are committed to offering the finest in craftsmanship, technology, and performance. Whether you are seeking a sleek sedan, a powerful SUV, or a high-performance sports car, our inventory features the latest models from world-renowned brands like Mercedes-Benz, BMW, Audi, and Lexus. Experience unparalleled comfort and cutting-edge innovation that elevate your driving experience to new heights. Explore our collection and find your dream car today.</p>
+        <p>Discover the pinnacle of automotive excellence with our exclusive selection of luxury vehicles. At [Your
+            Company Name], we are committed to offering the finest in craftsmanship, technology, and performance.
+            Whether you are seeking a sleek sedan, a powerful SUV, or a high-performance sports car, our inventory
+            features the latest models from world-renowned brands like Mercedes-Benz, BMW, Audi, and Lexus. Experience
+            unparalleled comfort and cutting-edge innovation that elevate your driving experience to new heights.
+            Explore our collection and find your dream car today.</p>
 
     </div>
     <div class="col-6">
@@ -20,7 +25,8 @@
 <div class="container">
     <h2 class=" m-2">Popular Brands</h2>
     {% for br in brand %}
-    <a class="btn btn-outline-primary m-2 text-decoration-none text-dark "  href="{% url 'brand_wise_car' br.slug %}">{{br}}</a>
+    <a class="btn btn-outline-primary m-2 text-decoration-none text-dark "
+        href="{% url 'brand_wise_car' br.slug %}">{{br}}</a>
     {% endfor %}
 </div>
 
@@ -36,9 +42,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{car.car_name}}</h5>
                     <p class="card-text">${{car.car_price}}</p>
-                    <div  class="d-grid gap-2 col-6 mx-auto">
-                        <a href="{% url 'car_detail' car.id %}" class="btn btn-warning" type="button">View Details</a>
-                        
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="{% url 'car_detail' car.id %}" class="btn btn-outline-warning" type="button">View
+                            Details</a>
+
                     </div>
                 </div>
             </div>
